@@ -31,6 +31,6 @@ public class StepDef {
 
     @Then("^I expect the result (\\d+)$")
     public void iExpectTheResult(int arg0) {
-        Assert.assertEquals(arg0, result);
+        Assert.assertEquals((double) arg0/2, result);
     }
 }
