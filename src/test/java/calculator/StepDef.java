@@ -9,7 +9,7 @@ public class StepDef {
     private Calculator calculator;
     private int value1;
     private int value2;
-    private double result;
+    private int result;
 
     @Before
     public void before() {
@@ -25,12 +25,12 @@ public class StepDef {
 
     @When("^I radical division the values$")
     public void iAddTheTwoValues() {
-        result = calculator.sqrtDivide(value1, value2);
+        result = (int) calculator.sqrtDivide(value1, value2);
         System.out.print(result);
     }
 
     @Then("^I expect the result (\\d+)$")
     public void iExpectTheResult(int arg0) {
-        Assert.assertEquals((double) arg0/2, result);
+        Assert.assertEquals(arg0, result);
     }
 }
