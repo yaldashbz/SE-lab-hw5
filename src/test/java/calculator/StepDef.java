@@ -1,35 +1,15 @@
-package calculator
-
-
-import cucumber.api.PendingException
-
-this.metaClass.mixin(cucumber.api.groovy.Hooks)
-this.metaClass.mixin(cucumber.api.groovy.EN)
-
-Given(~/^Two input values, (\d+) and (\d+)$/) { int arg1, int arg2 ->
-    // Write code here that turns the phrase above into concrete actions
-    throw new PendingException()
-}
-When(~/^I radical division the values$/) { ->
-    // Write code here that turns the phrase above into concrete actions
-    throw new PendingException()
-}
-Then(~/^I expect the result (\d+)$/) { int arg1 ->
-    // Write code here that turns the phrase above into concrete actions
-    throw new PendingException()
-}
-
+package calculator;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
-public class MyStepdefs {
+public class StepDef {
     private Calculator calculator;
     private int value1;
     private int value2;
-    private int result;
+    private double result;
 
     @Before
     public void before() {
@@ -43,9 +23,9 @@ public class MyStepdefs {
     }
 
 
-    @When("^I add the two values$")
+    @When("^I radical division the values$")
     public void iAddTheTwoValues() {
-        result = calculator.add(value1, value2);
+        result = calculator.sqrtDivide(value1, value2);
         System.out.print(result);
     }
 
